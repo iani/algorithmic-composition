@@ -444,11 +444,13 @@ Demonstrate use of the following:
     <link href="http://iani.github.io/2017/06/10/Links/"/>
     <id>http://iani.github.io/2017/06/10/Links/</id>
     <published>2017-06-10T15:10:22.000Z</published>
-    <updated>2017-06-10T15:11:15.000Z</updated>
+    <updated>2017-06-10T15:15:52.000Z</updated>
     
     <content type="html"><![CDATA[
 
 <ul class="org-ul">
+<li><a href="http://supercollider.github.io/" target="_blank" rel="external">http://supercollider.github.io/</a>
+</li>
 <li><a href="http://doc.sccode.org/" target="_blank" rel="external">http://doc.sccode.org/</a>
 </li>
 <li><a href="http://sccode.org/" target="_blank" rel="external">http://sccode.org/</a>
@@ -465,9 +467,8 @@ Demonstrate use of the following:
       
 
 &lt;ul class=&quot;org-ul&quot;&gt;
-&lt;li&gt;&lt;a href=&quot;http://doc.sccode.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://doc.sccode.org/&lt;/a&gt;
+&lt;li&gt;&lt;a href=&quot;http://supercollider.github.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://supercollider.github.io/&lt;/a&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http
     
     </summary>
     
