@@ -1,0 +1,1036 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/algorithmic-composition/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/algorithmic-composition/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/algorithmic-composition/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="contents," />
+
+
+
+
+
+  <link rel="alternate" href="/algorithmic-composition/atom.xml" title="Algorithmic Composition" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/algorithmic-composition/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Topics   Introduction  History and Principles  Client and Server programs in sound synthesis  Syntax and Semantics in programming languages  Unit Generators in sound synthesis  Writing SynthDefs (Syn">
+<meta name="keywords" content="contents">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Overview">
+<meta property="og:url" content="http://iani.github.io/2017/06/10/Overview/index.html">
+<meta property="og:site_name" content="Algorithmic Composition">
+<meta property="og:description" content="Topics   Introduction  History and Principles  Client and Server programs in sound synthesis  Syntax and Semantics in programming languages  Unit Generators in sound synthesis  Writing SynthDefs (Syn">
+<meta property="og:updated_time" content="2017-06-10T04:39:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Overview">
+<meta name="twitter:description" content="Topics   Introduction  History and Principles  Client and Server programs in sound synthesis  Syntax and Semantics in programming languages  Unit Generators in sound synthesis  Writing SynthDefs (Syn">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/algorithmic-composition/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://iani.github.io/2017/06/10/Overview/"/>
+
+
+
+
+
+  <title>Overview | Algorithmic Composition</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/algorithmic-composition/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Algorithmic Composition</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Notes for Summer School Seminar @ IU AVARTS 2017/06</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/algorithmic-composition/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/algorithmic-composition/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/algorithmic-composition/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/algorithmic-composition/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/algorithmic-composition/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://iani.github.io/algorithmic-composition/2017/06/10/Overview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Iannis Zannos">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/algorithmic-composition/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Algorithmic Composition">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Overview</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-10T06:20:00+03:00">
+                2017-06-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/algorithmic-composition/categories/overview/" itemprop="url" rel="index">
+                    <span itemprop="name">overview</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Topics</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>Introduction
+</li>
+<li><a href="../../../../2017/06/10/HistoryAndPrinciples/">History and Principles</a>
+</li>
+<li>Client and Server programs in sound synthesis
+</li>
+<li>Syntax and Semantics in programming languages
+</li>
+<li>Unit Generators in sound synthesis
+</li>
+<li>Writing SynthDefs (Synthesis Patches)
+</li>
+<li>Using Patterns (Musical Event score generators)
+</li>
+<li>Live control with OSC and MIDI
+</li>
+<li>Randomness and Chaos
+</li>
+<li>Data driven sound synthesis
+</li>
+</ul>
+
+<a id="more"></a>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Exercises</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">Server</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>Find a way to list all servers declared by the system in the <code>Server</code> class.
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2">Server, OSC, Synth, Node, Bus, Buffer</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li>Create a Synth
+</li>
+<li>List the current node tree of the default server on the post window
+</li>
+<li>Explain the structure of the node tree of the default server.
+</li>
+<li>Load a buffer from a sound file in supercollider. Find its number and its frame size and number of audio channels.  Play the file in supercollider
+</li>
+<li>Busses:
+<ul class="org-ul">
+<li>Control busses
+<ul class="org-ul">
+<li>Create a control-rate bus.
+</li>
+<li>Write to it using a control-rate ugen.
+</li>
+<li>Map a control 
+</li>
+</ul>
+</li>
+<li>Audio busses
+</li>
+<li>Multichannel expansion
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3">Unit Generators, Synth, SynthDefs. Απλές μορφές ελέγχου: MouseX/Y, Envelopes (Περιβάλλουσες).</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>Map the output range of a Unit Generator's signal to the range from 2 to 25 in two different ways:
+<ul class="org-ul">
+<li>By modifying the corresponding parameters already built-in the Unit Generator.
+</li>
+<li>By using a single linear mapping method applied to the Unit Generator.
+</li>
+</ul>
+</li>
+<li>Create a SynthDef with two control inputs, and code this to create the control inputs in two different ways:
+<ul class="org-ul">
+<li>Implicitly
+</li>
+<li>Explicitly
+</li>
+</ul>
+</li>
+<li>Control one parameter of a synth with mouse x (horizontally) and another parameter with mouse y (vertically)
+</li>
+<li>Define a SynthDef that uses a percussive envelope and create synths of different durations from it
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4">Synthesis Techniques</h3>
+<div class="outline-text-3" id="text-2-4">
+</div><div id="outline-container-sec-2-4-1" class="outline-4">
+<h4 id="sec-2-4-1">Non-sample based</h4>
+<div class="outline-text-4" id="text-2-4-1">
+<ul class="org-ul">
+<li>Demonstrate additive synthesis of tones with a small number of sinusoidal components
+</li>
+<li>Demonstrate additive synthesis using wavetables and sinusoids (Blip)
+</li>
+<li>Demonstrate use of Delay
+</li>
+<li>Use a Comb Filter to generate pitched sound signals
+</li>
+<li>Demonstrate use of Hi-pass, low-pass, band-pass and band-reject filters
+</li>
+<li>Use Formants to generate sounds resembling human vocalisation
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-4-2" class="outline-4">
+<h4 id="sec-2-4-2">Sample based</h4>
+<div class="outline-text-4" id="text-2-4-2">
+<ul class="org-ul">
+<li>PlayBuf
+</li>
+<li>BufRd
+</li>
+<li>DiskIn
+</li>
+<li>Granular Synthesis Ugens and techniques
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-4-3" class="outline-4">
+<h4 id="sec-2-4-3">Spectral processing (FFT/IFFT, spectral manipulations).</h4>
+<div class="outline-text-4" id="text-2-4-3">
+<ul class="org-ul">
+<li>FFT/IFFT
+</li>
+<li>PV-UGens
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-4-4" class="outline-4">
+<h4 id="sec-2-4-4">Chaotic and Noise Generators</h4>
+</div>
+</div>
+<div id="outline-container-sec-2-5" class="outline-3">
+<h3 id="sec-2-5">Control Structures</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+Demonstrate use of the following: 
+</p>
+<ul class="org-ul">
+<li>Conditionals
+</li>
+<li>Loops
+</li>
+<li>Iteration over Collections
+</li>
+<li>Branching
+</li>
+<li>Choice
+</li>
+<li>Explicit Evaluation of Functions, Function Callback, Asynchronous Control
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-6" class="outline-3">
+<h3 id="sec-2-6">Data Structures</h3>
+<div class="outline-text-3" id="text-2-6">
+<ul class="org-ul">
+<li>Scalar data elements: Magnitude, Integer, Float, Symbol
+</li>
+<li>Collections:
+<ul class="org-ul">
+<li>Sequenceable: String, Array, List, Signal
+</li>
+<li>Indexable by Key: Dictionary, IdentityDictionary, Event
+</li>
+<li>Non-Indexable: Set
+</li>
+</ul>
+</li>
+<li>Generative and Lazy Data Structures: Stream, Interval
+</li>
+<li>Data Storage on Disc
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-7" class="outline-3">
+<h3 id="sec-2-7">GUI construction</h3>
+<div class="outline-text-3" id="text-2-7">
+<ul class="org-ul">
+<li>Create a bank of sliders
+</li>
+<li>Create a button that starts and stops a synth
+</li>
+<li></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-8" class="outline-3">
+<h3 id="sec-2-8">MIDI</h3>
+<div class="outline-text-3" id="text-2-8">
+<ul class="org-ul">
+<li>MIDIFunc
+</li>
+</ul>
+
+<p>
+(also: Obsolete MIDI classes)
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-9" class="outline-3">
+<h3 id="sec-2-9">OSC</h3>
+<div class="outline-text-3" id="text-2-9">
+<ul class="org-ul">
+<li>OSCFunc
+</li>
+</ul>
+
+<p>
+(Also: Obsolete OSC Classes)
+</p>
+
+
+
+
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-10" class="outline-3">
+<h3 id="sec-2-10">8. Προγραμματισμός δομών στον χρόνο: Routines, Scheduling</h3>
+</div>
+
+
+<div id="outline-container-sec-2-11" class="outline-3">
+<h3 id="sec-2-11">9. Προγραμματισμός με στοιχεία από την συμβατική μουσική θεωρία και την θεωρία σειραϊκών διαδικασιών: Events, Patterns, Streams, Tempo.</h3>
+<div class="outline-text-3" id="text-2-11">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2-12" class="outline-3">
+<h3 id="sec-2-12">10. Επεξεργασία δεδομένων από εξωμουσικά πεδία, Physical Computing.</h3>
+<div class="outline-text-3" id="text-2-12">
+<ul class="org-ul">
+<li>Download data from a database with openly available real-world data about the environment.
+</li>
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-2-13" class="outline-3">
+<h3 id="sec-2-13">11. Ανασκόπηση και παραδείγματα.</h3>
+<div class="outline-text-3" id="text-2-13">
+<ul class="org-ul">
+<li>Build an application that demonstrates unsupervised learning in a neural network, using two different methods:
+<ul class="org-ul">
+<li>In sclang, storing numerical data in arrays
+</li>
+<li>In scsynth, using self-defined UGens
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/algorithmic-composition/tags/contents/" rel="tag"># contents</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/algorithmic-composition/2017/06/10/Introduction/" rel="prev" title="Introduction">
+                Introduction <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/algorithmic-composition/images/avatar.gif"
+               alt="Iannis Zannos" />
+          <p class="site-author-name" itemprop="name">Iannis Zannos</p>
+           
+              <p class="site-description motion-element" itemprop="description">Notes as blog + source code</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/algorithmic-composition/archives">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/algorithmic-composition/categories/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/algorithmic-composition/tags/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/algorithmic-composition/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-1"><span class="nav-number">1.</span> <span class="nav-text">Topics</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-2"><span class="nav-number">2.</span> <span class="nav-text">Exercises</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-2-1"><span class="nav-number">2.1.</span> <span class="nav-text">Server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-2-2"><span class="nav-number">2.2.</span> <span class="nav-text">Server, OSC, Synth, Node, Bus, Buffer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-2-3"><span class="nav-number">2.3.</span> <span class="nav-text">Unit Generators, Synth, SynthDefs. Απλές μορφές ελέγχου: MouseX/Y, Envelopes (Περιβάλλουσες).</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-2-4"><span class="nav-number">2.4.</span> <span class="nav-text">Synthesis Techniques</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sec-2-4-1"><span class="nav-number">2.4.1.</span> <span class="nav-text">Non-sample based</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sec-2-4-2"><span class="nav-number">2.4.2.</span> <span class="nav-text">Sample based</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sec-2-4-3"><span class="nav-number">2.4.3.</span> <span class="nav-text">Spectral processing (FFT/IFFT, spectral manipulations).</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sec-2-4-4"><span class="nav-number">2.4.4.</span> <span class="nav-text">Chaotic and Noise Generators</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-2-5"><span class="nav-number">2.5.</span> <span class="nav-text">Control Structures</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-2-6"><span class="nav-number">2.6.</span> <span class="nav-text">Data Structures</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-2-7"><span class="nav-number">2.7.</span> <span class="nav-text">GUI construction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-2-8"><span class="nav-number">2.8.</span> <span class="nav-text">MIDI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-2-9"><span class="nav-number">2.9.</span> <span class="nav-text">OSC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-2-10"><span class="nav-number">2.10.</span> <span class="nav-text">8. Προγραμματισμός δομών στον χρόνο: Routines, Scheduling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-2-11"><span class="nav-number">2.11.</span> <span class="nav-text">9. Προγραμματισμός με στοιχεία από την συμβατική μουσική θεωρία και την θεωρία σειραϊκών διαδικασιών: Events, Patterns, Streams, Tempo.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-2-12"><span class="nav-number">2.12.</span> <span class="nav-text">10. Επεξεργασία δεδομένων από εξωμουσικά πεδία, Physical Computing.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-2-13"><span class="nav-number">2.13.</span> <span class="nav-text">11. Ανασκόπηση και παραδείγματα.</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Iannis Zannos</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/algorithmic-composition/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/algorithmic-composition/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/algorithmic-composition/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/algorithmic-composition/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/algorithmic-composition/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/algorithmic-composition/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/algorithmic-composition/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/algorithmic-composition/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/algorithmic-composition/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/algorithmic-composition/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/algorithmic-composition/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
