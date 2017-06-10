@@ -5,7 +5,7 @@
   <link href="/algorithmic-composition/atom.xml" rel="self"/>
   
   <link href="http://iani.github.io/"/>
-  <updated>2017-06-10T04:47:35.000Z</updated>
+  <updated>2017-06-10T04:50:51.000Z</updated>
   <id>http://iani.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://iani.github.io/2017/06/10/Overview/"/>
     <id>http://iani.github.io/2017/06/10/Overview/</id>
     <published>2017-06-10T19:20:00.000Z</published>
-    <updated>2017-06-10T04:47:35.000Z</updated>
+    <updated>2017-06-10T04:50:51.000Z</updated>
     
     <content type="html"><![CDATA[
 
@@ -59,19 +59,11 @@
 <h2 id="sec-2">Exercises</h2>
 <div class="outline-text-2" id="text-2">
 </div><div id="outline-container-sec-2-1" class="outline-3">
-<h3 id="sec-2-1">Server</h3>
+<h3 id="sec-2-1">Server, OSC, Synth, Node, Bus, Buffer</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>Find a way to list all servers declared by the system in the <code>Server</code> class.
 </li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-sec-2-2" class="outline-3">
-<h3 id="sec-2-2">Server, OSC, Synth, Node, Bus, Buffer</h3>
-<div class="outline-text-3" id="text-2-2">
-<ul class="org-ul">
 <li>Create a Synth
 </li>
 <li>List the current node tree of the default server on the post window
@@ -102,9 +94,9 @@
 </div>
 </div>
 
-<div id="outline-container-sec-2-3" class="outline-3">
-<h3 id="sec-2-3">Unit Generators, Synth, SynthDefs. Απλές μορφές ελέγχου: MouseX/Y, Envelopes (Περιβάλλουσες).</h3>
-<div class="outline-text-3" id="text-2-3">
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2">Unit Generators, SynthDefs, MouseX/Y, Envelopes.</h3>
+<div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>Map the output range of a Unit Generator's signal to the range from 2 to 25 in two different ways:
 <ul class="org-ul">
@@ -130,12 +122,12 @@
 </div>
 </div>
 
-<div id="outline-container-sec-2-4" class="outline-3">
-<h3 id="sec-2-4">Synthesis Techniques</h3>
-<div class="outline-text-3" id="text-2-4">
-</div><div id="outline-container-sec-2-4-1" class="outline-4">
-<h4 id="sec-2-4-1">Non-sample based</h4>
-<div class="outline-text-4" id="text-2-4-1">
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3">Synthesis Techniques</h3>
+<div class="outline-text-3" id="text-2-3">
+</div><div id="outline-container-sec-2-3-1" class="outline-4">
+<h4 id="sec-2-3-1">Non-sample based</h4>
+<div class="outline-text-4" id="text-2-3-1">
 <ul class="org-ul">
 <li>Demonstrate additive synthesis of tones with a small number of sinusoidal components
 </li>
@@ -153,9 +145,9 @@
 </div>
 </div>
 
-<div id="outline-container-sec-2-4-2" class="outline-4">
-<h4 id="sec-2-4-2">Sample based</h4>
-<div class="outline-text-4" id="text-2-4-2">
+<div id="outline-container-sec-2-3-2" class="outline-4">
+<h4 id="sec-2-3-2">Sample based</h4>
+<div class="outline-text-4" id="text-2-3-2">
 <ul class="org-ul">
 <li>PlayBuf
 </li>
@@ -169,9 +161,9 @@
 </div>
 </div>
 
-<div id="outline-container-sec-2-4-3" class="outline-4">
-<h4 id="sec-2-4-3">Spectral processing (FFT/IFFT, spectral manipulations).</h4>
-<div class="outline-text-4" id="text-2-4-3">
+<div id="outline-container-sec-2-3-3" class="outline-4">
+<h4 id="sec-2-3-3">Spectral processing (FFT/IFFT, spectral manipulations).</h4>
+<div class="outline-text-4" id="text-2-3-3">
 <ul class="org-ul">
 <li>FFT/IFFT
 </li>
@@ -181,13 +173,13 @@
 </div>
 </div>
 
-<div id="outline-container-sec-2-4-4" class="outline-4">
-<h4 id="sec-2-4-4">Chaotic and Noise Generators</h4>
+<div id="outline-container-sec-2-3-4" class="outline-4">
+<h4 id="sec-2-3-4">Chaotic and Noise Generators</h4>
 </div>
 </div>
-<div id="outline-container-sec-2-5" class="outline-3">
-<h3 id="sec-2-5">Control Structures</h3>
-<div class="outline-text-3" id="text-2-5">
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4">Control Structures</h3>
+<div class="outline-text-3" id="text-2-4">
 <p>
 Demonstrate use of the following: 
 </p>
@@ -208,9 +200,9 @@ Demonstrate use of the following:
 </div>
 </div>
 
-<div id="outline-container-sec-2-6" class="outline-3">
-<h3 id="sec-2-6">Data Structures</h3>
-<div class="outline-text-3" id="text-2-6">
+<div id="outline-container-sec-2-5" class="outline-3">
+<h3 id="sec-2-5">Data Structures</h3>
+<div class="outline-text-3" id="text-2-5">
 <ul class="org-ul">
 <li>Scalar data elements: Magnitude, Integer, Float, Symbol
 </li>
@@ -232,9 +224,9 @@ Demonstrate use of the following:
 </div>
 </div>
 
-<div id="outline-container-sec-2-7" class="outline-3">
-<h3 id="sec-2-7">GUI construction</h3>
-<div class="outline-text-3" id="text-2-7">
+<div id="outline-container-sec-2-6" class="outline-3">
+<h3 id="sec-2-6">GUI construction</h3>
+<div class="outline-text-3" id="text-2-6">
 <ul class="org-ul">
 <li>Create a bank of sliders
 </li>
@@ -245,9 +237,9 @@ Demonstrate use of the following:
 </div>
 </div>
 
-<div id="outline-container-sec-2-8" class="outline-3">
-<h3 id="sec-2-8">MIDI</h3>
-<div class="outline-text-3" id="text-2-8">
+<div id="outline-container-sec-2-7" class="outline-3">
+<h3 id="sec-2-7">MIDI</h3>
+<div class="outline-text-3" id="text-2-7">
 <ul class="org-ul">
 <li>MIDIFunc
 </li>
@@ -259,9 +251,9 @@ Demonstrate use of the following:
 </div>
 </div>
 
-<div id="outline-container-sec-2-9" class="outline-3">
-<h3 id="sec-2-9">OSC</h3>
-<div class="outline-text-3" id="text-2-9">
+<div id="outline-container-sec-2-8" class="outline-3">
+<h3 id="sec-2-8">OSC</h3>
+<div class="outline-text-3" id="text-2-8">
 <ul class="org-ul">
 <li>OSCFunc
 </li>
@@ -273,21 +265,21 @@ Demonstrate use of the following:
 </div>
 </div>
 
-<div id="outline-container-sec-2-10" class="outline-3">
-<h3 id="sec-2-10">Routines, Scheduling</h3>
+<div id="outline-container-sec-2-9" class="outline-3">
+<h3 id="sec-2-9">Routines, Scheduling</h3>
 </div>
 
 
+<div id="outline-container-sec-2-10" class="outline-3">
+<h3 id="sec-2-10">Events, Patterns, Streams, Tempo</h3>
+</div>
+
 <div id="outline-container-sec-2-11" class="outline-3">
-<h3 id="sec-2-11">Events, Patterns, Streams, Tempo</h3>
+<h3 id="sec-2-11">Physical Computing</h3>
 </div>
 
 <div id="outline-container-sec-2-12" class="outline-3">
-<h3 id="sec-2-12">Physical Computing</h3>
-</div>
-
-<div id="outline-container-sec-2-13" class="outline-3">
-<h3 id="sec-2-13">Data Driven Synthesis</h3>
+<h3 id="sec-2-12">Data Driven Synthesis</h3>
 </div>
 </div>
 ]]></content>
