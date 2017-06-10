@@ -102,7 +102,7 @@
 <meta property="og:url" content="http://iani.github.io/2017/06/10/Overview/index.html">
 <meta property="og:site_name" content="Algorithmic Composition">
 <meta property="og:description" content="Topics   Introduction  History and Principles  Client and Server programs in sound synthesis  Syntax and Semantics in programming languages  Unit Generators in sound synthesis  Writing SynthDefs (Syn">
-<meta property="og:updated_time" content="2017-06-10T04:50:51.000Z">
+<meta property="og:updated_time" content="2017-06-10T12:01:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Overview">
 <meta name="twitter:description" content="Topics   Introduction  History and Principles  Client and Server programs in sound synthesis  Syntax and Semantics in programming languages  Unit Generators in sound synthesis  Writing SynthDefs (Syn">
@@ -449,6 +449,14 @@
 </li>
 </ul>
 </li>
+</ul>
+
+<div class="org-src-container">
+
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">~vibrato = { | freq = 400, rate = 5 |&#10;&#9;SinOsc.ar (&#10;&#9;&#9;SinOsc.kr (rate).range (1, 1.1) * freq,&#10;&#9;&#9;0,&#10;&#9;&#9;0.1&#10;&#9;)&#10;}.play;&#10;//:&#10;~vibrato = { | freq = 800, rate = 7.5 |&#10;&#9;SinOsc.ar (&#10;&#9;&#9;SinOsc.kr (rate).range (1, 9/8) * freq,&#10;&#9;&#9;0,&#10;&#9;&#9;0.1&#10;&#9;)&#10;}.play;&#10;//:&#10;&#10;~vibrato.set (\freq, 300);&#10;~vibrato.set (\freq, 550);&#10;//:&#10;~vibrato.set (\freq, 800);&#10;~vibrato.set (\rate, 4.47);</span><br></pre></td></tr></table></figure>
+</div>
+
+<ul class="org-ul">
 <li>Create a SynthDef with two control inputs, and code this to create the control inputs in two different ways:
 <ul class="org-ul">
 <li>Implicitly
@@ -457,12 +465,43 @@
 </li>
 </ul>
 </li>
+</ul>
+</div>
+<ul class="org-ul"><li><a id="sec-2-2-0-1" name="sec-2-2-0-1"></a>Answers<br><ul class="org-ul"><li><a id="sec-2-2-0-1-1" name="sec-2-2-0-1-1"></a>Explicit<br><div class="outline-text-6" id="text-2-2-0-1-1">
+<div class="org-src-container">
+
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">   SynthDef(&#34;explicit&#34;, { | freq = 440, amp = 0.1 |&#10;&#9;   Out.ar (&#10;&#9;&#9;   0,&#10;&#9;&#9;   SinOsc.ar (freq, 0, amp);&#10;&#9;   )&#10;   }).add;&#10;//:&#10;&#10; a = Synth(&#34;explicit&#34;);&#10; //:&#10; {&#10;&#9; loop {&#10;&#9;&#9; 0.1.wait;&#10;&#9;&#9; a.set (\freq, 400 + 400.rand)&#10;&#9; }&#10; }.fork</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</li>
+<li><a id="sec-2-2-0-1-2" name="sec-2-2-0-1-2"></a>Implicit<br><div class="outline-text-6" id="text-2-2-0-1-2">
+<div class="org-src-container">
+
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">SynthDef(&#34;implicit&#34;, {&#10;&#9;Out.ar (&#10;&#9;&#9;0,&#10;&#9;&#9;SinOsc.ar (\freq.kr (440), 0, \amp.kr (0.1));&#10;&#9;)&#10;}).add;&#10;&#10;//:&#10;&#10;a = Synth(&#34;implicit&#34;);&#10;//:&#10;{&#10;&#9;loop {&#10;&#9;&#9;0.1.wait;&#10;&#9;&#9;a.set (\freq, 400 + 400.rand, \amp, 0.1.rand)&#10;&#9;}&#10;}.fork</span><br></pre></td></tr></table></figure>
+</div>
+
+<ul class="org-ul">
 <li>Control one parameter of a synth with mouse x (horizontally) and another parameter with mouse y (vertically)
 </li>
+</ul>
+
+<div class="org-src-container">
+
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">//:&#10;a = {&#10;&#9;SinOsc.ar (MouseX.kr (300, 4000), 0, MouseY.kr (0, 0.5))&#10;}.play;&#10;//:&#10;a.free;&#10;//:&#10;a = {&#10;&#9;SinOsc.ar (MouseX.kr (50, 80).round (1).midicps, 0, MouseY.kr (0, 0.5))&#10;}.play;&#10;//:&#10;a.free;</span><br></pre></td></tr></table></figure>
+</div>
+
+<ul class="org-ul">
 <li>Define a SynthDef that uses a percussive envelope and create synths of different durations from it
 </li>
 </ul>
+
+<div class="org-src-container">
+
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">SynthDef(&#34;perc&#34;, { | dur = 0.1, amp = 0.1, lpfreq = 440 |&#10;&#9;var src;&#10;&#9;src = WhiteNoise.ar (&#10;&#9;&#9;EnvGen.kr (Env.perc (0.01, dur - 0.01), gate: 1, levelScale: amp, doneAction: 2)&#10;&#9;);&#10;&#9;Out.ar (0, LPF.ar (src, lpfreq))&#10;}).add;&#10;//:&#10;Synth (&#34;perc&#34;);&#10;//:&#10;Synth (&#34;perc&#34;, [dur: 1]);&#10;//:&#10;Synth (&#34;perc&#34;, [dur: 10]);&#10;//:&#10;{&#10;&#9;var durStream;&#10;&#9;var fStream;&#10;&#9;durStream = Prand ([0.1 dup: 20, 0.2 dup: 10, 0.8].flat, inf).asStream;&#10;&#9;fStream = Prand (([40, 50, 60, 52, 55] * 2).midicps, inf).asStream;&#10;&#9;loop {&#10;&#9;&#9;var dur;&#10;&#9;&#9;dur = durStream.next;&#10;&#9;&#9;Synth (&#34;perc&#34;, [dur: dur, lpfreq: fStream.next]);&#10;&#9;&#9;dur.wait;&#10;&#9;}&#10;}.fork</span><br></pre></td></tr></table></figure>
 </div>
+</div>
+</li></ul>
+</li></ul>
 </div>
 
 <div id="outline-container-sec-2-3" class="outline-3">
@@ -474,8 +513,31 @@
 <ul class="org-ul">
 <li>Demonstrate additive synthesis of tones with a small number of sinusoidal components
 </li>
+</ul>
+
+<div class="org-src-container">
+
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">//:&#10;a = { | freq = 400 |&#10;&#9;Mix (&#10;&#9;&#9;SinOsc.ar ((1..12) * freq, 0, 0.1)&#10;&#9;)&#10;}.play;&#10;&#10;//:&#10;a = { | freq = 400 |&#10;&#9;Mix (&#10;&#9;&#9;SinOsc.ar ((1..12) * freq, 0, 0.1 * (1..12).reciprocal)&#10;&#9;)&#10;}.play;&#10;&#10;//:&#10;a = { | freq = 400 |&#10;&#9;Mix (&#10;&#9;&#9;SinOsc.ar ((1..12) * freq, 0, 0.1 * LFNoise1.kr ({ 1 rrand: 5 } ! 12, (1..12).reciprocal))&#10;&#9;)&#10;}.play;&#10;&#10;//:&#10;{&#10;&#9;loop {&#10;&#9;&#9;a.set (\freq, 40.rrand (90).midicps);&#10;&#9;    0.05.exprand (3.0).wait;&#10;&#9;}&#10;}.fork</span><br></pre></td></tr></table></figure>
+</div>
+<ul class="org-ul">
 <li>Demonstrate additive synthesis using wavetables and sinusoids (Blip)
 </li>
+</ul>
+</div>
+<ul class="org-ul"><li><a id="sec-2-3-1-1" name="sec-2-3-1-1"></a>Answer 1: Simple Wavetable<br><div class="outline-text-5" id="text-2-3-1-1">
+<div class="org-src-container">
+
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">s = Server.local;&#10;b = Buffer.alloc(s, 512, 1);&#10;//:&#10;b.sine1(1.0/[1,2,3,4,5,6], true, true, true);&#10;//:&#10;SynthDef(&#34;help-Osc&#34;,{ arg out=0,bufnum=0;&#10;    Out.ar(out,&#10;&#9;Osc.ar(bufnum, 200, 0, 0.5)&#10;    )&#10;}).play(s,[\out, 0, \bufnum, b.bufnum]);&#10;//: Modify wavetable on the fly:&#10;b.sine1(1.0/[1,2,3,4,5,6].reverse, true, true, true);&#10;//:</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</li>
+<li><a id="sec-2-3-1-2" name="sec-2-3-1-2"></a>Answer 2: Blip<br><div class="outline-text-5" id="text-2-3-1-2">
+<div class="org-src-container">
+
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+</div>
+
+<ul class="org-ul">
 <li>Demonstrate use of Delay
 </li>
 <li>Use a Comb Filter to generate pitched sound signals
@@ -486,6 +548,7 @@
 </li>
 </ul>
 </div>
+</li></ul>
 </div>
 
 <div id="outline-container-sec-2-3-2" class="outline-4">
