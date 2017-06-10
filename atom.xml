@@ -240,7 +240,7 @@
 <li><a id="sec-2-3-1-5" name="sec-2-3-1-5"></a>from <a href="http://sccode.org/1-4Vq" target="_blank" rel="external">http://sccode.org/1-4Vq</a><br><div class="outline-text-5" id="text-2-3-1-5">
 <div class="org-src-container">
 
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">/*&#10;&#10;&#171;Re: Silly Voice&#187; by wondersluyter on 11 Dec'13 09:44 in formant synthesisgregorian chant&#10;Silly gregorian chant, from Silly Voice&#10;&#10;http://sccode.org/1-4Vq&#10;&#10;Copied: Sun, Apr 13 2014, 21:49 EEST&#10;*/&#10;//:&#10;// SynthDef&#10;SynthDef(&#34;sillyChoir&#34;, { arg&#10;&#9;freq = 220,&#10;&#9;amp = 0.5,&#10;&#9;vibratoSpeed = 6,&#10;&#9;vibratoDepth = 4,&#10;&#9;vowel = 0,&#10;&#9;att = 0.01,&#10;&#9;rel = 0.1,&#10;&#9;lag = 1,&#10;&#9;gate = 1;&#10;&#10;&#9;var in, vibrato, env, va, ve, vi, vo, vu, snd, temp_freq, temp_lag, temp_vowel;&#10;&#10;&#9;env = EnvGen.kr(Env.asr(att, 1, rel), gate, doneAction: 2);&#10;&#10;&#9;snd = DC.ar(0) ! 2;&#10;&#10;&#9;5.do { |i|&#10;&#9;&#9;vibrato = SinOsc.kr(vibratoSpeed + LFNoise1.kr(1).range(-1, 1), mul: vibratoDepth * LFNoise1.kr(1).range(0.5, 1));&#10;&#10;&#9;&#9;temp_freq = DelayC.kr(freq, 0.2, LFNoise1.kr(1).range(0, 0.2)) * LFNoise1.kr(0.5).range(0.98, 1.02);&#10;&#9;&#9;temp_lag = lag * LFNoise1.kr(1).range(0.5, 1);&#10;&#9;&#9;temp_vowel = DelayC.kr(vowel, 0.2, LFNoise1.kr(1).range(0, 0.2));&#10;&#10;&#9;&#9;in = VarSaw.ar(Lag.kr(temp_freq, temp_lag) + vibrato, width: LFNoise1.kr(1).range(0.05, 0.2)) * LFNoise1.kr(1).range(0.5, 1);&#10;&#10;&#9;&#9;va = BBandPass.ar(&#10;&#9;&#9;&#9;in: in,&#10;&#9;&#9;&#9;freq: [ 600, 1040, 2250, 2450, 2750 ],&#10;&#9;&#9;&#9;bw: [ 0.1, 0.067307692307692, 0.048888888888889, 0.048979591836735, 0.047272727272727 ],&#10;&#9;&#9;&#9;mul: [ 1, 0.44668359215096, 0.35481338923358, 0.35481338923358, 0.1 ]);&#10;&#10;&#9;&#9;ve = BBandPass.ar(&#10;&#9;&#9;&#9;in: in,&#10;&#9;&#9;&#9;freq: [ 400, 1620, 2400, 2800, 3100 ] ,&#10;&#9;&#9;&#9;bw: [ 0.1, 0.049382716049383, 0.041666666666667, 0.042857142857143, 0.038709677419355 ],&#10;&#9;&#9;&#9;mul: [ 1, 0.25118864315096, 0.35481338923358, 0.25118864315096, 0.12589254117942 ]);&#10;&#10;&#9;&#9;vi = BBandPass.ar(&#10;&#9;&#9;&#9;in: in,&#10;&#9;&#9;&#9;freq: [ 250, 1750, 2600, 3050, 3340 ] ,&#10;&#9;&#9;&#9;bw: [ 0.24, 0.051428571428571, 0.038461538461538, 0.039344262295082, 0.035928143712575 ],&#10;&#9;&#9;&#9;mul: [ 1, 0.031622776601684, 0.15848931924611, 0.079432823472428, 0.03981071705535 ] );&#10;&#10;&#9;&#9;vo = BBandPass.ar(&#10;&#9;&#9;&#9;in: in,&#10;&#9;&#9;&#9;freq:[ 400, 750, 2400, 2600, 2900 ] ,&#10;&#9;&#9;&#9;bw: [ 0.1, 0.10666666666667, 0.041666666666667, 0.046153846153846, 0.041379310344828 ],&#10;&#9;&#9;&#9;mul: [ 1, 0.28183829312645, 0.089125093813375, 0.1, 0.01 ]);&#10;&#10;&#9;&#9;vu = BBandPass.ar(&#10;&#9;&#9;&#9;in: in,&#10;&#9;&#9;&#9;freq: [ 350, 600, 2400, 2675, 2950 ],&#10;&#9;&#9;&#9;bw: [ 0.11428571428571, 0.13333333333333, 0.041666666666667, 0.044859813084112, 0.040677966101695 ],&#10;&#9;&#9;&#9;mul: [ 1, 0.1, 0.025118864315096, 0.03981071705535, 0.015848931924611 ]);&#10;&#10;&#9;&#9;snd = snd + Pan2.ar(SelectX.ar(Lag.kr(temp_vowel, temp_lag), [va, ve, vi, vo, vu]), i.linlin(0, 4, -1, 1));&#10;&#9;};&#10;&#10;&#9;snd = Compander.ar(snd, snd, -30.dbamp, 1, 0.5, 0.01, 0.1) * 6.dbamp;&#10;&#10;&#9;snd = FreeVerb2.ar(snd[0], snd[1], 0.5, 1, 1);&#10;&#10;&#9;Out.ar(0, snd * env * amp);&#10;}).load;&#10;&#10;//:&#10;Pmono(&#10;&#9;&#34;sillyChoir&#34;,&#10;&#9;\note, Pwrand([0, 2, 4, 5, 7, 9] * 3, [5, 2, 3, 3, 4, 1].normalizeSum, inf),&#10;&#9;\ctranspose, -14,&#10;&#9;\dur, Pstutter(Prand([1, 2, 4] / 2, inf), Pwrand([1, 0.5, 0.25] / 2, [1, 2, 1].normalizeSum / 2, inf)),&#10;&#9;\amp, Pbrown(-12, -6, 0.1).dbamp,&#10;&#9;\vibratoSpeed, Pwhite(4, 5),&#10;&#9;\vibratoDepth, 2,&#10;&#9;\vowel, Pwrand([0, 1, 2, 3, 4], [4, 3, 2, 1, 1].normalizeSum, inf),&#10;&#9;\lag, 0.5&#10;).play;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">/*&#10;&#10;&#171;Re: Silly Voice&#187; by wondersluyter on 11 Dec&#39;13 09:44 in formant synthesisgregorian chant&#10;Silly gregorian chant, from Silly Voice&#10;&#10;http://sccode.org/1-4Vq&#10;&#10;Copied: Sun, Apr 13 2014, 21:49 EEST&#10;*/&#10;//:&#10;// SynthDef&#10;SynthDef(&#34;sillyChoir&#34;, { arg&#10;&#9;freq = 220,&#10;&#9;amp = 0.5,&#10;&#9;vibratoSpeed = 6,&#10;&#9;vibratoDepth = 4,&#10;&#9;vowel = 0,&#10;&#9;att = 0.01,&#10;&#9;rel = 0.1,&#10;&#9;lag = 1,&#10;&#9;gate = 1;&#10;&#10;&#9;var in, vibrato, env, va, ve, vi, vo, vu, snd, temp_freq, temp_lag, temp_vowel;&#10;&#10;&#9;env = EnvGen.kr(Env.asr(att, 1, rel), gate, doneAction: 2);&#10;&#10;&#9;snd = DC.ar(0) ! 2;&#10;&#10;&#9;5.do { |i|&#10;&#9;&#9;vibrato = SinOsc.kr(vibratoSpeed + LFNoise1.kr(1).range(-1, 1), mul: vibratoDepth * LFNoise1.kr(1).range(0.5, 1));&#10;&#10;&#9;&#9;temp_freq = DelayC.kr(freq, 0.2, LFNoise1.kr(1).range(0, 0.2)) * LFNoise1.kr(0.5).range(0.98, 1.02);&#10;&#9;&#9;temp_lag = lag * LFNoise1.kr(1).range(0.5, 1);&#10;&#9;&#9;temp_vowel = DelayC.kr(vowel, 0.2, LFNoise1.kr(1).range(0, 0.2));&#10;&#10;&#9;&#9;in = VarSaw.ar(Lag.kr(temp_freq, temp_lag) + vibrato, width: LFNoise1.kr(1).range(0.05, 0.2)) * LFNoise1.kr(1).range(0.5, 1);&#10;&#10;&#9;&#9;va = BBandPass.ar(&#10;&#9;&#9;&#9;in: in,&#10;&#9;&#9;&#9;freq: [ 600, 1040, 2250, 2450, 2750 ],&#10;&#9;&#9;&#9;bw: [ 0.1, 0.067307692307692, 0.048888888888889, 0.048979591836735, 0.047272727272727 ],&#10;&#9;&#9;&#9;mul: [ 1, 0.44668359215096, 0.35481338923358, 0.35481338923358, 0.1 ]);&#10;&#10;&#9;&#9;ve = BBandPass.ar(&#10;&#9;&#9;&#9;in: in,&#10;&#9;&#9;&#9;freq: [ 400, 1620, 2400, 2800, 3100 ] ,&#10;&#9;&#9;&#9;bw: [ 0.1, 0.049382716049383, 0.041666666666667, 0.042857142857143, 0.038709677419355 ],&#10;&#9;&#9;&#9;mul: [ 1, 0.25118864315096, 0.35481338923358, 0.25118864315096, 0.12589254117942 ]);&#10;&#10;&#9;&#9;vi = BBandPass.ar(&#10;&#9;&#9;&#9;in: in,&#10;&#9;&#9;&#9;freq: [ 250, 1750, 2600, 3050, 3340 ] ,&#10;&#9;&#9;&#9;bw: [ 0.24, 0.051428571428571, 0.038461538461538, 0.039344262295082, 0.035928143712575 ],&#10;&#9;&#9;&#9;mul: [ 1, 0.031622776601684, 0.15848931924611, 0.079432823472428, 0.03981071705535 ] );&#10;&#10;&#9;&#9;vo = BBandPass.ar(&#10;&#9;&#9;&#9;in: in,&#10;&#9;&#9;&#9;freq:[ 400, 750, 2400, 2600, 2900 ] ,&#10;&#9;&#9;&#9;bw: [ 0.1, 0.10666666666667, 0.041666666666667, 0.046153846153846, 0.041379310344828 ],&#10;&#9;&#9;&#9;mul: [ 1, 0.28183829312645, 0.089125093813375, 0.1, 0.01 ]);&#10;&#10;&#9;&#9;vu = BBandPass.ar(&#10;&#9;&#9;&#9;in: in,&#10;&#9;&#9;&#9;freq: [ 350, 600, 2400, 2675, 2950 ],&#10;&#9;&#9;&#9;bw: [ 0.11428571428571, 0.13333333333333, 0.041666666666667, 0.044859813084112, 0.040677966101695 ],&#10;&#9;&#9;&#9;mul: [ 1, 0.1, 0.025118864315096, 0.03981071705535, 0.015848931924611 ]);&#10;&#10;&#9;&#9;snd = snd + Pan2.ar(SelectX.ar(Lag.kr(temp_vowel, temp_lag), [va, ve, vi, vo, vu]), i.linlin(0, 4, -1, 1));&#10;&#9;};&#10;&#10;&#9;snd = Compander.ar(snd, snd, -30.dbamp, 1, 0.5, 0.01, 0.1) * 6.dbamp;&#10;&#10;&#9;snd = FreeVerb2.ar(snd[0], snd[1], 0.5, 1, 1);&#10;&#10;&#9;Out.ar(0, snd * env * amp);&#10;}).load;&#10;&#10;//:&#10;Pmono(&#10;&#9;&#34;sillyChoir&#34;,&#10;&#9;\note, Pwrand([0, 2, 4, 5, 7, 9] * 3, [5, 2, 3, 3, 4, 1].normalizeSum, inf),&#10;&#9;\ctranspose, -14,&#10;&#9;\dur, Pstutter(Prand([1, 2, 4] / 2, inf), Pwrand([1, 0.5, 0.25] / 2, [1, 2, 1].normalizeSum / 2, inf)),&#10;&#9;\amp, Pbrown(-12, -6, 0.1).dbamp,&#10;&#9;\vibratoSpeed, Pwhite(4, 5),&#10;&#9;\vibratoDepth, 2,&#10;&#9;\vowel, Pwrand([0, 1, 2, 3, 4], [4, 3, 2, 1, 1].normalizeSum, inf),&#10;&#9;\lag, 0.5&#10;).play;</span><br></pre></td></tr></table></figure>
 </div>
 </div>
 </li></ul>
@@ -436,6 +436,45 @@ Demonstrate use of the following:
     
     
       <category term="contents" scheme="http://iani.github.io/tags/contents/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Links</title>
+    <link href="http://iani.github.io/2017/06/10/Links/"/>
+    <id>http://iani.github.io/2017/06/10/Links/</id>
+    <published>2017-06-10T15:10:22.000Z</published>
+    <updated>2017-06-10T15:11:15.000Z</updated>
+    
+    <content type="html"><![CDATA[
+
+<ul class="org-ul">
+<li><a href="http://doc.sccode.org/" target="_blank" rel="external">http://doc.sccode.org/</a>
+</li>
+<li><a href="http://sccode.org/" target="_blank" rel="external">http://sccode.org/</a>
+</li>
+<li><a href="https://toplap.org/" target="_blank" rel="external">https://toplap.org/</a>
+</li>
+<li><a href="https://tidalcycles.org/" target="_blank" rel="external">https://tidalcycles.org/</a>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      
+
+&lt;ul class=&quot;org-ul&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;http://doc.sccode.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://doc.sccode.org/&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http
+    
+    </summary>
+    
+      <category term="Links" scheme="http://iani.github.io/categories/Links/"/>
+    
+    
+      <category term="Links" scheme="http://iani.github.io/tags/Links/"/>
     
   </entry>
   
