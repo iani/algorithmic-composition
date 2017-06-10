@@ -5,7 +5,7 @@
   <link href="/algorithmic-composition/atom.xml" rel="self"/>
   
   <link href="http://iani.github.io/"/>
-  <updated>2017-06-10T13:18:50.000Z</updated>
+  <updated>2017-06-10T14:26:51.000Z</updated>
   <id>http://iani.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://iani.github.io/2017/06/10/Overview/"/>
     <id>http://iani.github.io/2017/06/10/Overview/</id>
     <published>2017-06-10T19:20:00.000Z</published>
-    <updated>2017-06-10T13:18:50.000Z</updated>
+    <updated>2017-06-10T14:26:51.000Z</updated>
     
     <content type="html"><![CDATA[
 
@@ -233,7 +233,7 @@
 <li><a id="sec-2-3-1-4" name="sec-2-3-1-4"></a>Deconstructing the central formant synthesis function from above example<br><div class="outline-text-5" id="text-2-3-1-4">
 <div class="org-src-container">
 
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">SynthDef(\vocali, { arg f1, f2, fund = 70, amp = 0.25 ;&#10;&#9;var source = Saw.ar(fund);&#10;&#9;var vowel = Normalizer.ar(BPF.ar(source, f1, 0.1))&#10;&#9;+&#10;&#9;Normalizer.ar(BPF.ar(source, f2, 0.1))&#10;&#9;* amp ;&#10;&#9;Out.ar(0, vowel.dup)&#10;}).add ;&#10;// the \vocali synthdef uses 2 formant frequencies f1 and f2 to simulate vocals&#10;//: let us try it out&#10;a = Synth (\vocali);&#10;//:&#10;a.set (\f1, 100, \f2, 400);&#10;//:&#10;a.set (\f1, 400, \f2, 200);&#10;//:&#10;a.set (\f1, 1000, \f2, 500);&#10;//:&#10;{&#10;&#9;loop {&#10;&#9;&#9;a.set (\f1, 100 rrand: 1200, \f2, 100 rrand: 1200);&#10;&#9;&#9;0.2.wait;&#10;&#9;}&#10;}.rout</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">SynthDef(\vocali, { arg f1, f2, fund = 70, amp = 0.25 ;&#10;&#9;var source = Saw.ar(fund);&#10;&#9;var vowel = Normalizer.ar(BPF.ar(source, f1, 0.1))&#10;&#9;+&#10;&#9;Normalizer.ar(BPF.ar(source, f2, 0.1))&#10;&#9;* amp ;&#10;&#9;Out.ar(0, vowel.dup)&#10;}).add ;&#10;// the \vocali synthdef uses 2 formant frequencies f1 and f2 to simulate vocals&#10;//: let us try it out&#10;a = Synth (\vocali);&#10;//:&#10;a.set (\f1, 100, \f2, 400);&#10;//:&#10;a.set (\f1, 400, \f2, 200);&#10;//:&#10;a.set (\f1, 1000, \f2, 500);&#10;//: Try out random values&#10;{&#10;&#9;loop {&#10;&#9;&#9;a.set (\f1, 100 rrand: 1200, \f2, 100 rrand: 1200);&#10;&#9;&#9;0.2.wait;&#10;&#9;}&#10;}.rout&#10;//: Next use the values from the code of the GUI - with the vowels:&#10;a = Synth (\vocali);&#10;~vowels = (\i:[2300, 300], \e: [2150, 440], \E: [1830, 580],&#10;&#9;\a: [1620, 780], \O: [900, 580], \o: [730, 440],&#10;&#9;\u: [780, 290],\y: [1750, 300],\oe: [1600, 440],&#10;&#9;\OE: [1400, 580]);&#10;&#10;{&#10;&#9;loop {&#10;&#9;&#9;var vowel, formants;&#10;&#9;&#9;vowel = ~vowels.keys.asArray.choose;&#10;&#9;&#9;&#34;playing: &#34;.post;&#10;&#9;&#9;vowel.postln;&#10;&#9;&#9;formants = ~vowels [vowel];&#10;&#9;&#9;a.set (\f1, formants [0], \f2, formants [1]);&#10;&#9;&#9;3.wait;&#10;&#9;};&#10;}.rout;</span><br></pre></td></tr></table></figure>
 </div>
 </div>
 </li>
@@ -255,10 +255,30 @@
 </li>
 <li>DiskIn
 </li>
+</ul>
+</div>
+
+<ul class="org-ul"><li><a id="sec-2-3-2-1" name="sec-2-3-2-1"></a>Granular synthesis<br><div class="outline-text-5" id="text-2-3-2-1">
+<ul class="org-ul">
 <li>Granular Synthesis Ugens and techniques
 </li>
 </ul>
+
+<p>
+Looking at 2 UGens: GrainBuf, BufGrain.
+</p>
 </div>
+
+<ul class="org-ul"><li><a id="sec-2-3-2-1-1" name="sec-2-3-2-1-1"></a>GrainBuf<br><div class="outline-text-6" id="text-2-3-2-1-1">
+<div class="org-src-container">
+
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">Server.default.boot;&#10;//:&#10;var winenv;&#10;&#10;b = Buffer.read(s, Platform.resourceDir +/+ &#34;sounds/a11wlk01-44_1.aiff&#34;);&#10;&#10;//:&#10;b.play;&#10;//:&#10;// a custom envelope&#10;winenv = Env([0, 1, 0], [0.5, 0.5], [8, -8]);&#10;z = Buffer.sendCollection(s, winenv.discretize, 1);&#10;&#10;//:&#10;SynthDef(\buf_grain_test, {arg gate = 1, amp = 1, sndbuf, envbuf;&#10;    var pan, env, freqdev;&#10;    // use mouse x to control panning&#10;    pan = MouseX.kr(-1, 1);&#10;    env = EnvGen.kr(&#10;&#9;Env([0, 1, 0], [1, 1], \sin, 1),&#10;&#9;gate,&#10;&#9;levelScale: amp,&#10;&#9;doneAction: 2);&#10;    Out.ar(0,&#10;&#9;GrainBuf.ar(2, Impulse.kr(10), 0.1, sndbuf, LFNoise1.kr.range(0.5, 2),&#10;&#9;    LFNoise2.kr(0.1).range(0, 1), 2, pan, envbuf) * env)&#10;}).add;&#10;&#10;&#10;//:&#10;// use built-in env&#10;x = Synth(\buf_grain_test, [\sndbuf, b, \envbuf, -1])&#10;&#10;// switch to the custom env&#10;x.set(\envbuf, z)&#10;x.set(\envbuf, -1);&#10;&#10;x.set(\gate, 0);&#10;&#10;//:&#10;b.play;&#10;//: Deconstructing the above&#10;&#10;\buf_grain_test, { | gate = 1, amp = 1, sndbuf, envbuf |&#10;&#9;var pan, env, freqdev, source;&#10;&#9;// provide amplitude control + fade-in/out envelope for entire synth:&#10;&#9;env = EnvGen.kr(&#10;&#9;&#9;Env([0, 1, 0], [1, 1], \sin, 1),&#10;&#9;&#9;gate,&#10;&#9;&#9;levelScale: amp,&#10;&#9;&#9;doneAction: 2);&#10;&#9;// our grain source:&#10;&#10;&#9;source = GrainBuf.ar(2,&#10;&#9;&#9;// !!!!!!!!!!!!!!!! = Control rhythm of triggering here:&#10;&#9;&#9;Impulse.kr(10), // 10 grains per second:&#10;&#9;&#9;0.1, // 0.1 duration per grain&#10;&#9;&#9;sndbuf, // this is the audio source of grains&#10;&#9;&#9;// !!!!!!!!!!!!!!!!&#10;&#9;&#9;LFNoise1.kr.range(0.5, 2), // rate varies with lfnoise&#10;&#9;&#9;// !!!!!!!!!!!!!!!!&#10;&#9;&#9;LFNoise2.kr(0.1).range(0, 1), // position of grain varies lfnoise2&#10;&#9;&#9;2, // interpolation&#10;&#9;&#9;pan, // pan&#10;&#9;&#9;envbuf // envelope for grains&#10;&#9;);&#10;&#9;Out.ar(0, source * env); // play the source in envelope&#10;}.add&#10;&#10;//: Parameters of primary interest are:&#10;// trigger, rate, position&#10;// Here trying manual detailed control:&#10;// 1. Triggering. Use the gate param (number 2)&#10;SynthDef (\trig_test, { | trigger = 0, amp = 1, sndbuf, envbuf |&#10;&#9;var source;&#10;&#9;source = GrainBuf.ar(2,&#10;&#9;&#9;// !!!!!!!!!!!!!!!! = Control rhythm of triggering here:&#10;&#9;&#9;trigger,&#10;&#9;&#9;0.1, // 0.1 duration per grain&#10;&#9;&#9;sndbuf, // this is the audio source of grains&#10;&#9;&#9;1, // rate&#10;&#9;&#9;0.5, // position of grain source in sample&#10;&#9;&#9;2, // interpolation&#10;&#9;&#9;0, // pan&#10;&#9;&#9;envbuf // envelope for grains&#10;&#9;);&#10;&#9;Out.ar(0, source); // play the source in envelope&#10;}).add;&#10;//: Start Synth&#10;a = Synth (\trig_test);&#10;//: Triggering just 1 grain (!...)&#10;a.set (\trigger, 1);&#10;//: Retriggering does not work that simply:&#10;a.set (\trigger, 1);&#10;//: We need to set back to 0 (?????)&#10;a.set (\trigger, 0);&#10;//: But this is clearly not practical. How much do we need to wait?&#10;SynthDef (\trig_change_test, { | trigger = 0, amp = 1, sndbuf, envbuf |&#10;&#9;var source;&#10;&#9;source = GrainBuf.ar(2,&#10;&#9;&#9;// will trigger every time that the trigger changes value&#10;&#9;&#9;Changed.kr (trigger),&#10;&#9;&#9;//trigger,&#10;&#9;&#9;0.1, // 0.1 duration per grain&#10;&#9;&#9;sndbuf, // this is the audio source of grains&#10;&#9;&#9;1, // rate&#10;&#9;&#9;0.5, // position of grain source in sample&#10;&#9;&#9;2, // interpolation&#10;&#9;&#9;0, // pan&#10;&#9;&#9;envbuf // envelope for grains&#10;&#9;);&#10;&#9;Out.ar(0, source); // play the source in envelope&#10;}).add;&#10;//:&#10;a = Synth (\trig_change_test);&#10;//: Provide new values for changing the trigger&#10;~triggers = Pseries (0, 1, inf).asStream;&#10;//:&#10;a.set (\trigger, ~triggers.next.postln);&#10;//:&#10;{&#10;&#9;loop {&#10;&#9;&#9;a.set (\trigger, ~triggers.next.postln);&#10;&#9;&#9;[0.1, 0.2, 0.4].choose.wait;&#10;&#9;}&#10;}.fork;&#10;&#10;//:&#10;{&#10;    var changingSignal = LFNoise0.ar(1000);&#10;    var changed = Changed.ar(changingSignal);&#10;    [changingSignal, changed]&#10;}.plot;&#10;//: Adding the rest of the interesting variables&#10;SynthDef (\graincontrol, { | trigger = 0, amp = 1, pan = 0, pos = 1, rate = 1, sndbuf, envbuf, dur = 0.1 |&#10;&#9;var source;&#10;&#9;source = GrainBuf.ar(2,&#10;&#9;&#9;// will trigger every time that the trigger changes value&#10;&#9;&#9;Changed.kr (trigger),&#10;&#9;&#9;//trigger,&#10;&#9;&#9;dur, // 0.1 duration per grain&#10;&#9;&#9;sndbuf, // this is the audio source of grains&#10;&#9;&#9;rate, // rate&#10;&#9;&#9;pos, // position of grain source in sample&#10;&#9;&#9;2, // interpolation&#10;&#9;&#9;pan, // pan&#10;&#9;&#9;envbuf // envelope for grains&#10;&#9;);&#10;&#9;Out.ar(0, source); // play the source in envelope&#10;}).add;&#10;//:&#10;a = Synth (\graincontrol);&#10;//: Provide new values for changing the trigger&#10;~triggers = Pseries (1, 1, inf).asStream;&#10;//:&#10;a.set (\trigger, ~triggers.next.postln);&#10;//:&#10;{&#10;&#9;loop {&#10;&#9;&#9;a.set (\trigger, ~triggers.next.postln);&#10;&#9;&#9;a.set (\pos, 0 rrand: 1);&#10;&#9;&#9;a.set (\rate, 0.3 rrand: 5);&#10;&#9;&#9;a.set (\pan, -1.0 rrand: 1.0);&#10;&#9;&#9;a.set (\dur, 0.01 rrand: 2);&#10;&#9;&#9;//            [0.1, 0.2, 0.4].choose.wait;&#10;&#9;&#9;2.wait;&#10;&#9;}&#10;}.rout;</span><br></pre></td></tr></table></figure>
+</div>
+</div>
+</li>
+
+<li><a id="sec-2-3-2-1-2" name="sec-2-3-2-1-2"></a>BufGrain<br></li></ul>
+</li></ul>
 </div>
 
 <div id="outline-container-sec-2-3-3" class="outline-4">
@@ -332,7 +352,6 @@ Demonstrate use of the following:
 </li>
 <li>Create a button that starts and stops a synth
 </li>
-<li></li>
 </ul>
 </div>
 </div>
@@ -368,7 +387,6 @@ Demonstrate use of the following:
 <div id="outline-container-sec-2-9" class="outline-3">
 <h3 id="sec-2-9">Routines, Scheduling</h3>
 </div>
-
 
 <div id="outline-container-sec-2-10" class="outline-3">
 <h3 id="sec-2-10">Events, Patterns, Streams, Tempo</h3>
