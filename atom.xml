@@ -5,7 +5,7 @@
   <link href="/algorithmic-composition/atom.xml" rel="self"/>
   
   <link href="http://iani.github.io/"/>
-  <updated>2017-06-10T03:26:59.000Z</updated>
+  <updated>2017-06-10T04:47:35.000Z</updated>
   <id>http://iani.github.io/</id>
   
   <author>
@@ -16,165 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>History and Principles</title>
-    <link href="http://iani.github.io/2017/06/10/HistoryAndPrinciples/"/>
-    <id>http://iani.github.io/2017/06/10/HistoryAndPrinciples/</id>
-    <published>2017-06-10T03:27:00.000Z</published>
-    <updated>2017-06-10T03:26:59.000Z</updated>
-    
-    <content type="html"><![CDATA[
-
-
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">Algorithmic Composition before computers</h2>
-<div class="outline-text-2" id="text-1">
-<a id="more"></a>
-</div>
-</div>
-
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">First Computer Programs for Writing Music</h2>
-</div>
-
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3">First Analog and Digital Synthesisers</h2>
-</div>
-
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4">Music-N Languages</h2>
-</div>
-
-<div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5">Interpreted Languages</h2>
-</div>
-
-<div id="outline-container-sec-6" class="outline-2">
-<h2 id="sec-6">GUI based control</h2>
-</div>
-
-<div id="outline-container-sec-7" class="outline-2">
-<h2 id="sec-7">Current Trends</h2>
-</div>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;div id=&quot;outline-container-sec-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Algorithmic Composition before computers&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
-    
-    </summary>
-    
-      <category term="history" scheme="http://iani.github.io/categories/history/"/>
-    
-    
-      <category term="history" scheme="http://iani.github.io/tags/history/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Introduction</title>
-    <link href="http://iani.github.io/2017/06/10/Introduction/"/>
-    <id>http://iani.github.io/2017/06/10/Introduction/</id>
-    <published>2017-06-10T03:26:00.000Z</published>
-    <updated>2017-06-10T04:40:43.000Z</updated>
-    
-    <content type="html"><![CDATA[
-
-
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">Algorithms</h2>
-<div class="outline-text-2" id="text-1">
-</div><div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1">Definition of Algorithm</h3>
-<div class="outline-text-3" id="text-1-1">
-<blockquote>
-<p>
-<i>An algorithm is a recipe, method, or technique for doing something. The essential feature of an algorithm is that it is made up of a finite set of rules or operations that are unambiguous and simple to follow (computer scientists use technical terms for these two properties: definite and effective, respectively). It is obvious from this definition that the notion of an algorithm is somewhat imprecise, a feature it shares with all foundational mathematical ideas—for instance, the idea of a set.</i>
-</p>
-</blockquote>
-
-<p>
-(Wilson and Keil 1999: 11)
-</p>
-</div>
-
-<div id="outline-container-sec-1-1-1" class="outline-4">
-<h4 id="sec-1-1-1">Algorithms and parametrization or abstraction</h4>
-<div class="outline-text-4" id="text-1-1-1">
-<a id="more"></a>
-</div>
-</div>
-</div>
-
-<div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2">Origins and role of algorithms</h3>
-</div>
-
-<div id="outline-container-sec-1-3" class="outline-3">
-<h3 id="sec-1-3">Algorithms and Mathematics</h3>
-</div>
-
-<div id="outline-container-sec-1-4" class="outline-3">
-<h3 id="sec-1-4">Algorithms and Design</h3>
-</div>
-
-<div id="outline-container-sec-1-5" class="outline-3">
-<h3 id="sec-1-5">Algorithms and Data</h3>
-</div>
-</div>
-
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">Composition</h2>
-<div class="outline-text-2" id="text-2">
-<ul class="org-ul">
-<li>Composition vs Construction vs Design
-</li>
-<li>Generative Design and Generative Music Creation
-</li>
-</ul>
-</div>
-</div>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;div id=&quot;outline-container-sec-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Algorithms&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
-&lt;/div&gt;&lt;div id=&quot;outline-container-sec-1-1&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-1-1&quot;&gt;Definition of Algorithm&lt;/h3&gt;
-&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-1&quot;&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;i&gt;An algorithm is a recipe, method, or technique for doing something. The essential feature of an algorithm is that it is made up of a finite set of rules or operations that are unambiguous and simple to follow (computer scientists use technical terms for these two properties: definite and effective, respectively). It is obvious from this definition that the notion of an algorithm is somewhat imprecise, a feature it shares with all foundational mathematical ideas—for instance, the idea of a set.&lt;/i&gt;
-&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;
-(Wilson and Keil 1999: 11)
-&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-sec-1-1-1&quot; class=&quot;outline-4&quot;&gt;
-&lt;h4 id=&quot;sec-1-1-1&quot;&gt;Algorithms and parametrization or abstraction&lt;/h4&gt;
-&lt;div class=&quot;outline-text-4&quot; id=&quot;text-1-1-1&quot;&gt;
-    
-    </summary>
-    
-      <category term="introduction" scheme="http://iani.github.io/categories/introduction/"/>
-    
-    
-      <category term="introduction" scheme="http://iani.github.io/tags/introduction/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Overview</title>
     <link href="http://iani.github.io/2017/06/10/Overview/"/>
     <id>http://iani.github.io/2017/06/10/Overview/</id>
-    <published>2017-06-10T03:20:00.000Z</published>
-    <updated>2017-06-10T04:39:18.000Z</updated>
+    <published>2017-06-10T19:20:00.000Z</published>
+    <updated>2017-06-10T04:47:35.000Z</updated>
     
     <content type="html"><![CDATA[
 
@@ -424,55 +270,24 @@ Demonstrate use of the following:
 <p>
 (Also: Obsolete OSC Classes)
 </p>
-
-
-
-
-<ul class="org-ul">
-<li></li>
-</ul>
 </div>
 </div>
 
 <div id="outline-container-sec-2-10" class="outline-3">
-<h3 id="sec-2-10">8. Προγραμματισμός δομών στον χρόνο: Routines, Scheduling</h3>
+<h3 id="sec-2-10">Routines, Scheduling</h3>
 </div>
 
 
 <div id="outline-container-sec-2-11" class="outline-3">
-<h3 id="sec-2-11">9. Προγραμματισμός με στοιχεία από την συμβατική μουσική θεωρία και την θεωρία σειραϊκών διαδικασιών: Events, Patterns, Streams, Tempo.</h3>
-<div class="outline-text-3" id="text-2-11">
-<ul class="org-ul">
-<li></li>
-</ul>
+<h3 id="sec-2-11">Events, Patterns, Streams, Tempo</h3>
 </div>
-</div>
-
 
 <div id="outline-container-sec-2-12" class="outline-3">
-<h3 id="sec-2-12">10. Επεξεργασία δεδομένων από εξωμουσικά πεδία, Physical Computing.</h3>
-<div class="outline-text-3" id="text-2-12">
-<ul class="org-ul">
-<li>Download data from a database with openly available real-world data about the environment.
-</li>
-<li></li>
-</ul>
+<h3 id="sec-2-12">Physical Computing</h3>
 </div>
-</div>
+
 <div id="outline-container-sec-2-13" class="outline-3">
-<h3 id="sec-2-13">11. Ανασκόπηση και παραδείγματα.</h3>
-<div class="outline-text-3" id="text-2-13">
-<ul class="org-ul">
-<li>Build an application that demonstrates unsupervised learning in a neural network, using two different methods:
-<ul class="org-ul">
-<li>In sclang, storing numerical data in arrays
-</li>
-<li>In scsynth, using self-defined UGens
-</li>
-</ul>
-</li>
-</ul>
-</div>
+<h3 id="sec-2-13">Data Driven Synthesis</h3>
 </div>
 </div>
 ]]></content>
@@ -511,6 +326,160 @@ Demonstrate use of the following:
     
     
       <category term="contents" scheme="http://iani.github.io/tags/contents/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>History and Principles</title>
+    <link href="http://iani.github.io/2017/06/10/HistoryAndPrinciples/"/>
+    <id>http://iani.github.io/2017/06/10/HistoryAndPrinciples/</id>
+    <published>2017-06-10T03:27:00.000Z</published>
+    <updated>2017-06-10T03:26:59.000Z</updated>
+    
+    <content type="html"><![CDATA[
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Algorithmic Composition before computers</h2>
+<div class="outline-text-2" id="text-1">
+<a id="more"></a>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">First Computer Programs for Writing Music</h2>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">First Analog and Digital Synthesisers</h2>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">Music-N Languages</h2>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">Interpreted Languages</h2>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">GUI based control</h2>
+</div>
+
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7">Current Trends</h2>
+</div>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;div id=&quot;outline-container-sec-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Algorithmic Composition before computers&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+    
+    </summary>
+    
+      <category term="history" scheme="http://iani.github.io/categories/history/"/>
+    
+    
+      <category term="history" scheme="http://iani.github.io/tags/history/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Introduction</title>
+    <link href="http://iani.github.io/2017/06/10/Introduction/"/>
+    <id>http://iani.github.io/2017/06/10/Introduction/</id>
+    <published>2017-06-10T03:26:00.000Z</published>
+    <updated>2017-06-10T04:40:43.000Z</updated>
+    
+    <content type="html"><![CDATA[
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Algorithms</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">Definition of Algorithm</h3>
+<div class="outline-text-3" id="text-1-1">
+<blockquote>
+<p>
+<i>An algorithm is a recipe, method, or technique for doing something. The essential feature of an algorithm is that it is made up of a finite set of rules or operations that are unambiguous and simple to follow (computer scientists use technical terms for these two properties: definite and effective, respectively). It is obvious from this definition that the notion of an algorithm is somewhat imprecise, a feature it shares with all foundational mathematical ideas—for instance, the idea of a set.</i>
+</p>
+</blockquote>
+
+<p>
+(Wilson and Keil 1999: 11)
+</p>
+</div>
+
+<div id="outline-container-sec-1-1-1" class="outline-4">
+<h4 id="sec-1-1-1">Algorithms and parametrization or abstraction</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<a id="more"></a>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">Origins and role of algorithms</h3>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">Algorithms and Mathematics</h3>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4">Algorithms and Design</h3>
+</div>
+
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5">Algorithms and Data</h3>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Composition</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>Composition vs Construction vs Design
+</li>
+<li>Generative Design and Generative Music Creation
+</li>
+</ul>
+</div>
+</div>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;div id=&quot;outline-container-sec-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;Algorithms&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+&lt;/div&gt;&lt;div id=&quot;outline-container-sec-1-1&quot; class=&quot;outline-3&quot;&gt;
+&lt;h3 id=&quot;sec-1-1&quot;&gt;Definition of Algorithm&lt;/h3&gt;
+&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-1&quot;&gt;
+&lt;blockquote&gt;
+&lt;p&gt;
+&lt;i&gt;An algorithm is a recipe, method, or technique for doing something. The essential feature of an algorithm is that it is made up of a finite set of rules or operations that are unambiguous and simple to follow (computer scientists use technical terms for these two properties: definite and effective, respectively). It is obvious from this definition that the notion of an algorithm is somewhat imprecise, a feature it shares with all foundational mathematical ideas—for instance, the idea of a set.&lt;/i&gt;
+&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;
+(Wilson and Keil 1999: 11)
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-sec-1-1-1&quot; class=&quot;outline-4&quot;&gt;
+&lt;h4 id=&quot;sec-1-1-1&quot;&gt;Algorithms and parametrization or abstraction&lt;/h4&gt;
+&lt;div class=&quot;outline-text-4&quot; id=&quot;text-1-1-1&quot;&gt;
+    
+    </summary>
+    
+      <category term="introduction" scheme="http://iani.github.io/categories/introduction/"/>
+    
+    
+      <category term="introduction" scheme="http://iani.github.io/tags/introduction/"/>
     
   </entry>
   
